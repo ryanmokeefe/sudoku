@@ -50,7 +50,7 @@ function createRow(rowNum) {
             num = rand(1, 9);
             if (checkNum(rowNum, num)) {
                 if (checkNum(["col" + (i + 1)], num)) {
-                    rowNum[i] = num;
+                    rowNum.push(num);
                     this["col" + (i + 1)].push(num);
                 }
                    
@@ -59,6 +59,19 @@ function createRow(rowNum) {
         }}
     }
 }
+
+// create first row - eliminate nums from all matching cols & boxes
+
+
+
+
+
+
+
+
+
+
+
 
 createRow(row1);
 createRow(row2);
@@ -93,3 +106,19 @@ console.log(box1);
 console.log(box2);
 console.log(box3);
 console.log(box4);
+
+
+
+
+
+// // //
+
+
+// generate game board + inputs
+// rand num (x3-8 depending on difficulty level)
+// for each num (n times) - push nums into row (checking column, row, box) 
+//      - n = rand num between 1 - 7
+
+
+// backtracking algorithm to solve
+

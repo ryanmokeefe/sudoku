@@ -1,5 +1,43 @@
 body {
-    margin: 0;
+    margin: 0 auto;
     padding: 0;
-    background-color: rgb(164, 206, 244);
+    /* background-color: rgb(164, 206, 244); */
 }
+
+.grid {
+    border: 2px solid black;
+    max-height: 600px;
+    max-width: 576px;
+    /* max-width: 600px; */
+    margin: 0 auto;
+    margin-top: 50px;
+    padding: 0;
+}
+.row {
+    margin: 0 auto;
+    margin-left: 2px;
+    padding: 0;
+
+}
+
+.box1, .box3, .box5, .box7, .box9 {
+    background-color: rgb(145, 167, 187);
+}
+.box2, .box4, .box6, .box8 {
+    background-color: rgb(214, 222, 230);
+}
+input {
+    height: 60px;
+    width: 60px;
+    margin: 2px auto;
+    padding: 0;
+
+    border: none;
+    text-align: center;
+    font-size: 36px;
+    color: rgb(5, 5, 173);
+}
+input .pencil {
+    font-size: 10px;
+}
+
