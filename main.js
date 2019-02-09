@@ -23,40 +23,44 @@ createEmptyGrid();
 // Check for existing num:
 
 var checkNum = function(array, num) {
-    var available = true;
-    if (available === true) {
-        array.forEach(elem => {
-            if (elem === num) {
-                available = false;
-            } else {
-                return
-            }
-        });
-    }
+    var available;
+    array.forEach(function(e) {
+        if (e === num) {
+            available = false;
+        } else {
+            // return
+            available = true;
+        }
+    })
+
     return available;
 }
 
 
-// Fill first row:
 
-        // NOT WORKING: 
-        // checkNum(["col" + (i + 1)], num) && checkNum(["box" + (i + 1)], num)
-        // use backtracking algorithm
+// // Fill first row:
+
+//         // NOT WORKING: 
+//         // checkNum(["col" + (i + 1)], num) && checkNum(["box" + (i + 1)], num)
+//         // use backtracking algorithm
 
 function createRow(rowNum) {
 
     for (i = 0; i <= 8; i++) {
-        while (rowNum[i] === undefined || rowNum[i] === null) {
+        if (rowNum[i] === undefined || rowNum[i] === null) {
             num = rand(1, 9);
             if (checkNum(rowNum, num)) {
-                if (checkNum(["col" + (i + 1)], num)) {
+                colCheck = checkNum(["col" + (i + 1)], num) 
+                if (colCheck) {
                     rowNum.push(num);
                     this["col" + (i + 1)].push(num);
+                } else {
+                    // this["col" + (i + 1)].pop();
+                    rowNum[i] = undefined
+                    
                 }
-                   
-
-
-        }}
+            }
+        }
     }
 }
 
@@ -86,7 +90,7 @@ createRow(row9);
 
 
 
-// TESTING:
+// // TESTING:
 
 console.log("ROWS:");
 
@@ -101,11 +105,11 @@ console.log(col2);
 console.log(col3);
 console.log(col4);
 
-console.log("BOXES:");
-console.log(box1);
-console.log(box2);
-console.log(box3);
-console.log(box4);
+// console.log("BOXES:");
+// console.log(box1);
+// console.log(box2);
+// console.log(box3);
+// console.log(box4);
 
 
 
@@ -122,3 +126,14 @@ console.log(box4);
 
 // backtracking algorithm to solve
 
+
+// solve(game):
+//     if (game board is full)
+//         return SUCCESS
+//     else
+//         next_square = getNextEmptySquare()
+//         for each value that can legally be put in next_square
+//             put value in next_square (i.e. modify game state)
+//             if (solve(game)) return SUCCESS
+//             remove value from next_square (i.e. backtrack to a previous state)
+//     return FAILURE
